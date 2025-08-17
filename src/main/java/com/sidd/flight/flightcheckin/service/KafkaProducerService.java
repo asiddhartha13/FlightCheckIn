@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class KafkaProducerService {
 
-    private final KafkaTemplate<String, Object> kafkaTemplate;
+    private final KafkaTemplate<String, Passenger> kafkaTemplate;
 
     public void publishCheckInEvent(Passenger passenger) {
         String topic = "flight-checkin-topic";

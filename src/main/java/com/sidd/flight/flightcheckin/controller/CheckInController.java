@@ -1,6 +1,8 @@
 package com.sidd.flight.flightcheckin.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,13 @@ public class CheckInController {
 
         return ResponseEntity.ok("Check-in successful for " + request.getPassengerId() + 
         " on flight " + request.getFlightId());
+    }
+
+    // GET /checkin/{passengerId}
+    @GetMapping("/{passengerId}")
+    public ResponseEntity<String> getCheckInStatus(@PathVariable String passengerId) {
+        // later you can call a service method, for now just return dummy
+        return ResponseEntity.ok("Passenger " + passengerId + " is checked-in");
     }
 
 }
